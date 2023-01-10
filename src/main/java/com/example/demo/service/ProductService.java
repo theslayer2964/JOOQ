@@ -24,6 +24,9 @@ public class ProductService {
     public List<Products> getAll(){
         return dslContext.selectFrom(Tables.PRODUCTS).fetchInto(Products.class);
     }
+    public List<Products> getAll2(){
+        return dslContext.selectFrom(Tables.PRODUCTS).fetchInto(Products.class);
+    }
 
     public Map<String, Integer> countByProductLine(){
         Result<Record2<String, Integer>> rs = dslContext.select(Tables.PRODUCTS.PRODUCTLINE.as("a"), DSL.count(Tables.PRODUCTS.PRODUCTCODE).as("b"))
@@ -37,5 +40,6 @@ public class ProductService {
         }
         return map1;
     }
+
 
 }
